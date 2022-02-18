@@ -1,0 +1,34 @@
+brand:
+  text: Butiquin Pai-ta-on
+about:
+  text: A Python Study Material
+github:
+  user: transparencia-mg
+  repo: pai-ta-on
+topics:
+  selector: h2
+site:
+  favicon: 000_livemark/assets/images/favicon.ico
+  styles:
+    - 000_livemark/assets/stylesheets/style.css
+  scripts:
+    - 000_livemark/assets/stylesheets/script.js
+pages:
+  items:
+    - path: 001_setup/README
+    - name: Warm-up
+      items:
+        - path: 002_warm_up/001_terminal_101/README
+        - path: 002_warm_up/002_version_control_101/README
+    - name: Python Essential
+      items:
+        - path: 003_python_essentials/001_variables/README
+        - path: 003_python_essentials/002_strings/README
+        - path: 003_python_essentials/002_strings/LEIAME
+
+links:
+  items:
+    - name: Frictionless
+      path: https://frictionlessdata.io
+    - name: Livemark
+      path: https://livemark.frictionlessdata.io

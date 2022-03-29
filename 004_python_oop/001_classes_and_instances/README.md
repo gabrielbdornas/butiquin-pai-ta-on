@@ -103,9 +103,9 @@ After self we can specify all other arguments that we want to accept.
 
 Notice that in our case, we don't create email as a `__init__` method parameter. We chose to create it using the first and the last upercases names inside a string interpolation.
 
-When I that self is the instance mean that when we do `self.first_name`, for example, is the same as `empl_1.first_name`, except now instead of doing this manually t'll be done automatically when we create our employee objects.
+When we say `self` is the instance means that when we do `self.first_name`, for example, is the same as `empl_1.first_name`, except now instead of doing this manually t'll be done automatically when we create our employee objects.
 
-Now, when we create our instances of our employee class we can pass in the values that we specified in our `__it__` method and let the instance takes cara of it for us, leaving off self: 
+Now, when we create our instances of our employee class we can pass in the values that we specified in our `__it__` method and let the instance takes cara of it for us, leaving off `self`: 
 
 ```Python
 class Employee:
@@ -136,7 +136,7 @@ But now let's say that we wanted the ability to perform some kind of action.
 To do that, we can add some methods to our class.
 Let's say we wanted the ability to display the full name of an employee:
 
-```
+```Python
 class Employee:
 
   def __init__(self, first_name, last_name, pay):
@@ -169,19 +169,40 @@ Instead, the method within our class allows us to put this functionality in one 
 Pay attention to use parentheses in order to run `full_name()` method properly, because if we left the parentheses off and printed this then you'll see the method's information instead of the return value of it.
 
 One more quick thing to point out here is a common mistake when creating methods is forgetting the self argument for the instance.
-If run the method that we accidentally left self off of then, we'll see an a type error message saying that we "takes zero positional arguments but one was given".
+If run the method that we accidentally left self off of then, we'll see a type error message saying that we "takes zero positional arguments but one was given".
 This can be confusing because it doesn't look like we're passing any arguments into full name, but the instance is getting it passed automatically.
 We have to expect that instance argument in our method, and that's why we added self in it.
 
 To ilustrate that let's call `full_name()` method directly from Employee class. In this case, we have to manually pass in the instance as an argument.
 
 ```Python
+class Employee:
+
+  def __init__(self, first_name, last_name, pay):
+    self.first_name = first_name
+    self.last_name = last_name
+    self.email = f'{first_name.lower()}.{last_name.lower()}@company.com'
+    self.pay = pay
+  
+  def full_name(self):
+    return f'{self.first_name.capitalize()} {self.last_name.capitalize()}'
+
+
+empl_1 = Employee('Gabriel', 'Dornas', 50000)
+empl_2 = Employee('Paul', 'Mccartney', 60000)
+
+print(empl_1)
+print(empl_2)
+
+print(empl_1.email)
+print(empl_2.email)
+
 print(Employee.full_name(empl_1))
 print(empl_1.full_name())
 ```
 
-As you can see above, these two lines are exact the same thing, but in the seconde case when we do employee one, which is a instance and I call the method, I don't need to pass in self, because it does it automatically. 
+As you can see above, the two new lines are exact the same thing, but in the seconde case when we do employee one, which is a instance and I call the method, I don't need to pass in self, because it does it automatically. 
 On the other hand, when we call the method on the class and it doesn't know what instance that we want to run that method with, we do have to pass in the instance and that gets passed in as self.
 Its good to show that because that's actually what's going on in the background when we call our class' methods.
 
-So far we've learned how to create simple classes, the difference between a class and an instance of that class and we also learned how to initialize class attributes and create methods.
+That's it for this tutorial. So far we've learned how to create simple classes, the difference between a class and an instance of that class and we also learned how to initialize class attributes and create methods properly.

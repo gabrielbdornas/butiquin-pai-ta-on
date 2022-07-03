@@ -8,7 +8,7 @@ course = 'Python for Beginners'
 now earlier I told you could use both single and double quotes to define a string, but there are times you have to use a specific form, otherwise you're going to run into issues.
 
 Here's an example: imagine you wanted to change this string into _Python's course for Beginners_.
-So we want to add an apostrophe, lke this:
+So we want to add an apostrophe, like this:
 ````python
 course = 'Python's course for Beginners'
 ````
